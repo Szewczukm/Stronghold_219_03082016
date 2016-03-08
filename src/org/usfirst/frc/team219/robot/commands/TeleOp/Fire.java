@@ -30,12 +30,12 @@ public class Fire extends CommandBase {
     			Timer.delay(.5);
     			pneumatics.extendShooter();
     			break;
-    		case "climber":
-    			pneumatics.extendClimbers();
-    			break;
-    		case "portcullis":
-    			pneumatics.extendPortcullis();
-    			break;
+//    		case "climber":
+//    			pneumatics.extendClimbers();
+//    			break;
+//    		case "portcullis":
+//    			pneumatics.extendPortcullis();
+//    			break;
     	}
     	
     

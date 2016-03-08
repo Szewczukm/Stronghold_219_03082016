@@ -36,18 +36,11 @@ public class Arm extends Subsystem {
 		shooterLeft = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_LEFT);
 		shooterRight = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_RIGHT);
 		
-		limitArmBot = new DigitalInput(RobotMap.LIMIT_ARM_BOT_PORT);
-		limitShooter = new DigitalInput(RobotMap.LIMIT_SHOOTER_PORT);
-		limitArmClimb = new DigitalInput(RobotMap.LIMIT_ARM_CLIMB_PORT);
+//		limitArmBot = new DigitalInput(RobotMap.LIMIT_ARM_BOT_PORT);
+//		limitShooter = new DigitalInput(RobotMap.LIMIT_SHOOTER_PORT);
+//		limitArmClimb = new DigitalInput(RobotMap.LIMIT_ARM_CLIMB_PORT);
 	}
 	
-	
-
-	
-//	public void extendPortcullis
-//	{
-//		
-//	}
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.

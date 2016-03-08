@@ -26,12 +26,12 @@ public class Retract extends CommandBase {
     		case "shooter":
     			pneumatics.extendShooter();
     			break;
-    		case "climber":
-    			pneumatics.retractClimbers();
-    			break;
-    		case "portcullis":
-    			pneumatics.retractPortcullis();
-    			break;
+//    		case "climber":
+//    			pneumatics.retractClimbers();
+//    			break;
+//    		case "portcullis":
+//    			pneumatics.retractPortcullis();
+//    			break;
     	}
     }
 
