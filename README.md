@@ -3,8 +3,8 @@
 
 ### To-Do
 ##### Delete
-- [x] Arm, Arm Position, References
-- [ ] Pneumatics
+- [ ] Arm, Arm Position, References
+- [x] Pneumatics
 
 ##### Add
 - [ ] New Pneumatics
