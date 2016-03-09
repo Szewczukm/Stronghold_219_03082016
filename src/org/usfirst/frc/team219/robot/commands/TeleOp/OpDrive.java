@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class OpDrive extends CommandBase {
-	private double speedModifier = .6;
 
     public OpDrive() {
         // Use requires() here to declare subsystem dependencies
@@ -22,17 +21,7 @@ public class OpDrive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	System.out.println("driving");
-    	if(oi.getButtonLB()){
-    		speedModifier += .1;
-    	}
-    	if(oi.getButtonRB()){
-    		speedModifier -= .1;
-    	}
-    	drivetrain.tankDrive(-(oi.getLeftYDrive())*speedModifier, oi.getRightYDrive()*speedModifier);
-//    	System.out.println(oi.getLeftYDrive());
-//    	System.out.println(drivetrain.getGyroAngle());
-    	SmartDashboard.putNumber("Speed Modifier", speedModifier);
+    	drivetrain.tankDrive(-(oi.getLeftYDrive()), oi.getRightYDrive());
     }
 
     // Make this return true when this Command no longer needs to run execute()

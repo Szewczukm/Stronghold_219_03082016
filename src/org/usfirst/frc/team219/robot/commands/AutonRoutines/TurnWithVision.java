@@ -8,8 +8,6 @@ import org.usfirst.frc.team219.robot.commands.CommandBase;
  */
 public class TurnWithVision extends CommandBase {
 	
-	private boolean stop;
-	
     public TurnWithVision() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,24 +23,15 @@ public class TurnWithVision extends CommandBase {
     protected void execute() {
     	if(vision.turnRight()==1){
     		drivetrain.setTalonSpeed(-.2, -.2);
-//    		if(vision.getXVal() <=330 || vision.getXVal()>=310){
-//    			stop = true;
-//    		}
     	}
     	else if(vision.turnRight()==-1){
     		drivetrain.setTalonSpeed(.2, .2);
-//    		if(vision.getXVal() <=330 || vision.getXVal() >=310){
-//    			stop = true;
-//    		}
     	}
-//    	else{
-//    		stop = true;
-//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (vision.getXVal() <=330 || vision.getXVal()>=310);
+        return (vision.getXVal() <=330 && vision.getXVal()>=310);
 		
     }
 
