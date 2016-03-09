@@ -23,20 +23,6 @@ public class StartShooterWheels extends CommandBase{
 
 	@Override
 	protected boolean isFinished() {
-//		if(oi.buttonTwoPressed())
-//		{
-//			Timer.delay(.5);
-//			arm.setShootSpeed(0,0);
-//			return true;
-//		}
-//		if(oi.buttonOnePressed())
-//		{
-//			Timer.delay(.5); //Time until wheels turn off mid shoot
-//			arm.setShootSpeed(0,0);
-//			return true;
-//		}
-//		
-//		return false;
 		return (arm.getLimitShoot() || isTimedOut());
 	}
 

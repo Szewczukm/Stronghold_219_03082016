@@ -29,19 +29,15 @@ public class Vision extends Subsystem {
 	}
 		
 	public void post(){
-//		System.out.println("");
 	    table = NetworkTable.getTable("GRIP/myContoursReport");
-	    
-	    SmartDashboard.putString("Table", table.toString());
-	    
 	    centerXs = table.getNumberArray("centerX", defaultValue);
-	    System.out.println("should be running");
-	    
 	    SmartDashboard.putNumber("Turn Right?", turnRight());
-	    try{
+	    try {
 	    	SmartDashboard.putNumber("X Num", centerXs[0]);
+	    	SmartDashboard.putString("Target", "I SEE IT!");
 	    }
 	    catch(ArrayIndexOutOfBoundsException q) {
+	    	SmartDashboard.putString("Target", "Can't See Target...");
 	    }
 	    	    
 	}

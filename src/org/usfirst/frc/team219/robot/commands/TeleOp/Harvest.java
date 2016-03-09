@@ -10,7 +10,6 @@ public class Harvest extends CommandBase
 	@Override
 	protected void initialize()
 	{
-		// TODO Auto-generated method stub
 		this.setTimeout(5);
 	}
 
@@ -19,7 +18,6 @@ public class Harvest extends CommandBase
 	{
 		arm.setShootSpeed(-.7, .7);
 		SmartDashboard.putBoolean("shooter limit", arm.getLimitShoot());
-		// TODO Auto-generated method stub
 		SmartDashboard.putString("Is Harvesting", "HARVESTING");
 		
 	}
@@ -32,14 +30,12 @@ public class Harvest extends CommandBase
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		SmartDashboard.putString("Is Harvesting", "NOT HARVESTING");
 		arm.setShootSpeed(0, 0);
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		
 	}
 
