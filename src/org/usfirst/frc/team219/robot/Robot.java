@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team219.robot;
 
+import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveToDistance;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -27,6 +29,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
         chooser = new SendableChooser();
+        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }

@@ -36,6 +36,12 @@ public class Vision extends Subsystem {
 	    try {
 	    	SmartDashboard.putNumber("X Num", centerXs[0]);
 	    	SmartDashboard.putString("Target", "I SEE IT!");
+	    	if(getXVal() <=330 && getXVal()>=310){
+	    		SmartDashboard.putString("At Good Angle?", "FIRE AWAY");
+	    	}
+	    	else{
+	    		SmartDashboard.putString("At Good Angle?", "DON'T SHOOT");
+	    	}
 	    }
 	    catch(ArrayIndexOutOfBoundsException q) {
 	    	SmartDashboard.putString("Target", "Can't See Target...");
