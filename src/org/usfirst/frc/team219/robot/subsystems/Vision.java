@@ -20,6 +20,7 @@ public class Vision extends Subsystem {
     private NetworkTable table;
 
 	private double[] centerXs;
+	
 	private double[] defaultValue = new double[0];
     
 	public Vision() {
