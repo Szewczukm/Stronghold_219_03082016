@@ -3,6 +3,7 @@ Welcome to Team Impact's Github repository for our 2016 FRC Stronghold code.
 ### About us
 - We write in Java
 - Use GRIP and NetworkTables for vision processing
+- Started from scratch, first year as a team using Java
 
 ### To-Do
 ##### Delete
