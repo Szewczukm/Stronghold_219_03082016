@@ -1,6 +1,5 @@
 package org.usfirst.frc.team219.robot;
 
-import org.usfirst.frc.team219.robot.commands.AutonRoutines.TurnWithVision;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
