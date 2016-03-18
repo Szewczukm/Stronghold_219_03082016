@@ -5,7 +5,6 @@ import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
 import org.usfirst.frc.team219.robot.commands.TeleOp.StartShooterWheels;
-import org.usfirst.frc.team219.robot.commands.TeleOp.StopShooterWheels;
 
 //import org.usfirst.frc.team219.robot.commands.Harvest;
 //import org.usfirst.frc.team219.robot.commands.StartShooterWheels;s
@@ -51,26 +50,19 @@ public class OI {
 		  driveController = new Joystick(0);
 		  armController = new Joystick(1);
 		  
-		  JoystickButton x = new JoystickButton(driveController, 3);
-		  x.whenPressed(new TurnWithVision());
 		  JoystickButton a = new JoystickButton(driveController, 1);
 		  a.whenPressed(new Fire("Climber"));
 		  JoystickButton y = new JoystickButton(driveController, 4);
 		  y.whenPressed(new Retract("Climber"));
 		  
-		  
+		  JoystickButton b = new JoystickButton(driveController, 2);
+		  b.whileHeld(new Harvest());
+		  JoystickButton x = new JoystickButton(driveController, 3);
+		  x.whileHeld(new StartShooterWheels());
 		  
 		  JoystickButton one = new JoystickButton(armController, 1);
 		  one.whenPressed(new Fire("Shooter"));
-
-		  JoystickButton two = new JoystickButton(armController, 2);
-		  two.whenPressed(new StartShooterWheels());
-		  JoystickButton three = new JoystickButton(armController, 3);
-		  three.whenPressed(new Harvest());
-		  JoystickButton six = new JoystickButton(armController, 6);
-		  six.whenPressed(new StopShooterWheels());
-		  
-
+		 
 		  JoystickButton seven = new JoystickButton(armController, 7);
 		  seven.whenPressed(new Fire("Portcullis"));	  
 		  JoystickButton nine = new JoystickButton(armController, 9);

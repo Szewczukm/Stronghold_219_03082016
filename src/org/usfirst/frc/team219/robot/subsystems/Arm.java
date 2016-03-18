@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
- *@author Jace Beaudoin, Mark Szewczuk, Jason Tran
+ *@author Jace Beaudoin, Mark Szewczuk, Douglas Mosher
  */
 public class Arm extends Subsystem {
 
@@ -24,21 +24,14 @@ public class Arm extends Subsystem {
 	private double deltaSpeed = .05;
 	private CANTalon shooterLeft;
 	private CANTalon shooterRight;
-	private DigitalInput limitArmBot;
-	private DigitalInput limitShooter;
-	private DigitalInput limitArmClimb;
 
 	
 	public Arm() {
 		armLeft = new CANTalon(RobotMap.MOTOR_PORT_ARM_LEFT);
-//		armRight = new CANTalon(RobotMap.MOTOR_PORT_ARM_RIGHT);
 		armLeft.setPosition(0);		//resets arm encoder on turn on
 		shooterLeft = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_LEFT);
 		shooterRight = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_RIGHT);
-		
-//		limitArmBot = new DigitalInput(RobotMap.LIMIT_ARM_BOT_PORT);
-//		limitShooter = new DigitalInput(RobotMap.LIMIT_SHOOTER_PORT);
-//		limitArmClimb = new DigitalInput(RobotMap.LIMIT_ARM_CLIMB_PORT);
+
 	}
 	
 
@@ -64,24 +57,7 @@ public class Arm extends Subsystem {
 	 */
 	public void controlArm(double speed)
 	{
-		if(limitArmBot.get() && speed > 0)
-		{
-			armLeft.set(-speed );
-			armLeft.setPosition(0);
-//			armRight.set(speed);
-		}
-		else if(limitArmClimb.get() && speed < 0)
-		{
-			armLeft.set(-speed );
-//			armRight.set(speed );
-		}
-		else
-		{
-			armLeft.set(0);
-//			armRight.set(0);
-		}
-		
-		
+		armLeft.set(speed);
 	}
 	
 	/**
@@ -98,7 +74,6 @@ public class Arm extends Subsystem {
 		deltaPosition = endPos - armLeft.getEncPosition();
 		adjustSpeed = (deltaSpeed * deltaPosition);
 		armLeft.set(speed*adjustSpeed);
-		//armRight.set(speed*adjustSpeed);
 	}
 	
 	/**
@@ -122,14 +97,5 @@ public class Arm extends Subsystem {
 		return armLeft.getEncPosition();
 	}
 	
-	
-	public boolean getLimitShoot()
-	{
-		return limitShooter.get();
-	}
-	
-
-
-
 }
 

@@ -17,15 +17,14 @@ public class Harvest extends CommandBase
 	protected void execute()
 	{
 		arm.setShootSpeed(-.7, .7);
-		SmartDashboard.putBoolean("shooter limit", arm.getLimitShoot());
 		SmartDashboard.putString("Is Harvesting", "HARVESTING");
 		
 	}
 
 	@Override
 	protected boolean isFinished()
-	{
-		return (!arm.getLimitShoot() || isTimedOut());
+	{	
+		return isTimedOut();
 	}
 
 	@Override

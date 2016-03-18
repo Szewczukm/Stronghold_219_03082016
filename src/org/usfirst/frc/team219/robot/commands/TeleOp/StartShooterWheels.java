@@ -23,7 +23,7 @@ public class StartShooterWheels extends CommandBase{
 
 	@Override
 	protected boolean isFinished() {
-		return (arm.getLimitShoot() || isTimedOut());
+		return isTimedOut();
 	}
 
 	@Override
