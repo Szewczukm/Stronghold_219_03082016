@@ -17,15 +17,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Arm extends Subsystem {
 
-	private CANTalon armLeft;
+	private CANTalon armLifter;
 	private double adjustSpeed;
 	private double deltaPosition;
 	private double deltaSpeed = .05;
 
 	
 	public Arm() {
-		armLeft = new CANTalon(RobotMap.MOTOR_PORT_ARM_LEFT);
-		armLeft.setPosition(0);		//resets arm encoder on turn on
+		armLifter = new CANTalon(RobotMap.MOTOR_PORT_ARM);
+		armLifter.setPosition(0);		//resets arm encoder on turn on
 	}
 	
 
@@ -46,7 +46,7 @@ public class Arm extends Subsystem {
 	 */
 	public void controlArm(double speed)
 	{
-		armLeft.set(speed);
+		armLifter.set(speed);
 	}
 	
 	/**
@@ -60,9 +60,9 @@ public class Arm extends Subsystem {
 		/*
 		 * This needs to be logic checked for going from one position to the next...  Sort of same issue with last years lift
 		 */
-		deltaPosition = endPos - armLeft.getEncPosition();
+		deltaPosition = endPos - armLifter.getEncPosition();
 		adjustSpeed = (deltaSpeed * deltaPosition);
-		armLeft.set(speed*adjustSpeed);
+		armLifter.set(speed*adjustSpeed);
 	}
 	
 	/**
@@ -76,14 +76,14 @@ public class Arm extends Subsystem {
 		/*
 		 * This needs to be logic checked for going from one position to the next...  Sort of same issue with last years lift
 		 */
-		if(armLeft.getEncPosition() > endPos){
+		if(armLifter.getEncPosition() > endPos){
 			return true;
 		}
 		return false;
 	}
 	
 	public double getEncPos(){
-		return armLeft.getEncPosition();
+		return armLifter.getEncPosition();
 	}
 	
 }

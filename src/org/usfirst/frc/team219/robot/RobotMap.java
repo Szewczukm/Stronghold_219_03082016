@@ -18,9 +18,9 @@ public class RobotMap {
 	public static final int MOTOR_PORT_BL = 1;
 	public static final int MOTOR_PORT_FR = 3;
 	public static final int MOTOR_PORT_BR = 2;
-	public static final int MOTOR_PORT_ROLLER = 4;
-	public static final int MOTOR_PORT_ARM_LEFT = 5;
-	public static final int MOTOR_PORT_ARM_RIGHT = 6;
+//	public static final int MOTOR_PORT_ROLLER = 4; 
+	public static final int MOTOR_PORT_ROLLER = 5; //controls harvester/shooter
+	public static final int MOTOR_PORT_ARM = 6; //controls the main arm
 	
 	/**
 	 * Gyro port declaration
@@ -31,10 +31,10 @@ public class RobotMap {
 	 * Pneumatics port declarations
 	 */
 	public static final int PCM_PORT = 15;
-	public static final int CLIMBER_LEFT_FORWARD = 3;
-	public static final int CLIMBER_LEFT_REVERSE = 2;
+	public static final int CLIMBER_LEFT_FORWARD = 1;
+	public static final int CLIMBER_LEFT_REVERSE = 0;
 	public static final int CLIMBER_RIGHT_FORWARD = 6;
-	public static final int CLIMBER_RIGHT_REVERSE = 5;
+	public static final int CLIMBER_RIGHT_REVERSE = 7;
 
 }
 

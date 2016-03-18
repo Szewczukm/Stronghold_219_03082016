@@ -3,7 +3,7 @@ package org.usfirst.frc.team219.robot;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
-import org.usfirst.frc.team219.robot.commands.TeleOp.StartShooterWheels;
+import org.usfirst.frc.team219.robot.commands.TeleOp.StartRoller;
 
 //import org.usfirst.frc.team219.robot.commands.Harvest;
 //import org.usfirst.frc.team219.robot.commands.StartShooterWheels;s
@@ -57,7 +57,7 @@ public class OI {
 		  JoystickButton b = new JoystickButton(driveController, 2);
 		  b.whileHeld(new Harvest());
 		  JoystickButton x = new JoystickButton(driveController, 3);
-		  x.whileHeld(new StartShooterWheels());
+		  x.whileHeld(new StartRoller());
 	}
 	
 	/**

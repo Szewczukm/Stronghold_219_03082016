@@ -7,18 +7,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Harvest extends CommandBase
 {
 
+	public Harvest(){
+		requires(roller);
+		setTimeout(5);
+	}
+	
 	@Override
 	protected void initialize()
 	{
-		this.setTimeout(5);
+		roller.setRollerSpeed(.5);
 	}
 
 	@Override
 	protected void execute()
 	{
-		roller.setRollerSpeed(-.7);
-		SmartDashboard.putString("Is Harvesting", "HARVESTING");
-		
+		SmartDashboard.putString("Roller", "HARVESTING");
 	}
 
 	@Override
@@ -29,13 +32,13 @@ public class Harvest extends CommandBase
 
 	@Override
 	protected void end() {
-		SmartDashboard.putString("Is Harvesting", "NOT HARVESTING");
+		SmartDashboard.putString("Roller", "Z z z");
 		roller.setRollerSpeed(0);
 	}
 
 	@Override
 	protected void interrupted() {
-		
+		end();
 	}
 
 }

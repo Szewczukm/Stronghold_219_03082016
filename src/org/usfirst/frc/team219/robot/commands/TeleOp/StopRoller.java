@@ -1,4 +1,4 @@
- package org.usfirst.frc.team219.robot.commands.TeleOp;
+package org.usfirst.frc.team219.robot.commands.TeleOp;
 
 import org.usfirst.frc.team219.robot.commands.CommandBase;
 
@@ -8,34 +8,32 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class OpControlArm extends CommandBase {
+public class StopRoller extends CommandBase {
 
-    public OpControlArm() {
+    public StopRoller() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(arm);
+    	requires(roller);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	roller.setRollerSpeed(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	arm.controlArm(-oi.getYArm()*.4);
-    	//SmartDashboard.putBoolean("Limit", arm.getLimitArm());
-    	SmartDashboard.putNumber("Arm Encoder", arm.getEncPos());
-    	
+    	SmartDashboard.putString("Roller", "Z z z");
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	arm.controlArm(0);
+    	roller.setRollerSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

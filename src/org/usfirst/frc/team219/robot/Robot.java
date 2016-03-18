@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team219.robot;
 
+import org.usfirst.frc.team219.robot.commands.CommandBase;
 import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveToDistance;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -28,8 +29,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	CommandBase.init();
         chooser = new SendableChooser();
-        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
+//        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
