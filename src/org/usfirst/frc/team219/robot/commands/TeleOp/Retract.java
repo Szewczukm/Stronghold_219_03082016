@@ -9,30 +9,16 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Retract extends CommandBase {
 
-	private String retractType;
-	
-    public Retract(String rT) {
+    public Retract() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	retractType = rT.toLowerCase();
     	requires(pneumatics);
     	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-      	switch(retractType)
-    	{
-    		case "shooter":
-    			pneumatics.extendShooter();
-    			break;
-//    		case "climber":
-//    			pneumatics.retractClimbers();
-//    			break;
-//    		case "portcullis":
-//    			pneumatics.retractPortcullis();
-//    			break;
-    	}
+    	pneumatics.extendClimbers();
     }
 
     // Called repeatedly when this Command is scheduled to run

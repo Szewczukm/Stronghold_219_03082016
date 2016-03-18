@@ -16,7 +16,7 @@ public class Harvest extends CommandBase
 	@Override
 	protected void execute()
 	{
-		arm.setShootSpeed(-.7, .7);
+		roller.setRollerSpeed(-.7);
 		SmartDashboard.putString("Is Harvesting", "HARVESTING");
 		
 	}
@@ -30,7 +30,7 @@ public class Harvest extends CommandBase
 	@Override
 	protected void end() {
 		SmartDashboard.putString("Is Harvesting", "NOT HARVESTING");
-		arm.setShootSpeed(0, 0);
+		roller.setRollerSpeed(0);
 	}
 
 	@Override

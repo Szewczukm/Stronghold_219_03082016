@@ -18,31 +18,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
 
 	private CANTalon armLeft;
-	private CANTalon armRight;
 	private double adjustSpeed;
 	private double deltaPosition;
 	private double deltaSpeed = .05;
-	private CANTalon shooterLeft;
-	private CANTalon shooterRight;
 
 	
 	public Arm() {
 		armLeft = new CANTalon(RobotMap.MOTOR_PORT_ARM_LEFT);
 		armLeft.setPosition(0);		//resets arm encoder on turn on
-		shooterLeft = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_LEFT);
-		shooterRight = new CANTalon(RobotMap.MOTOR_PORT_SHOOTER_RIGHT);
-
 	}
 	
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 	
-	public void setShootSpeed(double speedL, double speedR)
-	{
-		shooterLeft.set(speedL);
-		shooterRight.set(speedR);
-	}
 
 
 	public void initDefaultCommand() {

@@ -10,11 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Fire extends CommandBase {
 
-	private String fireType;
 	
-    public Fire(String fT)
+    public Fire()
     {
-    	fireType = fT.toLowerCase();
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(pneumatics);
@@ -23,22 +21,7 @@ public class Fire extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize()
     {
-    	switch(fireType)
-    	{
-    		case "shooter":
-    			pneumatics.retractShooter();
-    			Timer.delay(.5);
-    			pneumatics.extendShooter();
-    			break;
-//    		case "climber":
-//    			pneumatics.extendClimbers();
-//    			break;
-//    		case "portcullis":
-//    			pneumatics.extendPortcullis();
-//    			break;
-    	}
-    	
-    
+    	pneumatics.retractClimbers();
     }
 
     // Called repeatedly when this Command is scheduled to run

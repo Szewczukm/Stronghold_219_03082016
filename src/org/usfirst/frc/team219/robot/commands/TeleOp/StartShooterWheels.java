@@ -11,6 +11,7 @@ public class StartShooterWheels extends CommandBase{
 	protected void initialize() {
 		// TODO Auto-generated method stub
 		this.setTimeout(5);
+		requires(roller);
 	}
 
 	@Override
@@ -18,7 +19,7 @@ public class StartShooterWheels extends CommandBase{
 	{
 //		Timer.delay(.5);
 		SmartDashboard.putString("Is Shooting", "FIRE UP THE BURNERS MAN");
-		arm.setShootSpeed(.8,-.8);
+		roller.setRollerSpeed(.8);
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class StartShooterWheels extends CommandBase{
 	protected void end() {
 		// TODO Auto-generated method stub
 		SmartDashboard.putString("Is Shooting", "Zzz");
-		arm.setShootSpeed(0,0);
+		roller.setRollerSpeed(0);
 	}
 
 	@Override

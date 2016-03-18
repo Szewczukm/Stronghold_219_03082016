@@ -51,26 +51,14 @@ public class OI {
 		  armController = new Joystick(1);
 		  
 		  JoystickButton a = new JoystickButton(driveController, 1);
-		  a.whenPressed(new Fire("Climber"));
+		  a.whenPressed(new Fire());
 		  JoystickButton y = new JoystickButton(driveController, 4);
-		  y.whenPressed(new Retract("Climber"));
+		  y.whenPressed(new Retract());
 		  
 		  JoystickButton b = new JoystickButton(driveController, 2);
 		  b.whileHeld(new Harvest());
 		  JoystickButton x = new JoystickButton(driveController, 3);
 		  x.whileHeld(new StartShooterWheels());
-		  
-		  JoystickButton one = new JoystickButton(armController, 1);
-		  one.whenPressed(new Fire("Shooter"));
-		 
-		  JoystickButton seven = new JoystickButton(armController, 7);
-		  seven.whenPressed(new Fire("Portcullis"));	  
-		  JoystickButton nine = new JoystickButton(armController, 9);
-		  nine.whenPressed(new Retract("Portcullis"));
-		  
-		  JoystickButton eleven = new JoystickButton(armController, 11);
-		  eleven.whenPressed(new Retract("Shooter"));
-		  
 	}
 	
 	/**
