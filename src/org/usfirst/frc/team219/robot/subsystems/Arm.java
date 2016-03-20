@@ -21,11 +21,13 @@ public class Arm extends Subsystem {
 	private double adjustSpeed;
 	private double deltaPosition;
 	private double deltaSpeed = .05;
+	private DigitalInput limitBot;
 
 	
 	public Arm() {
 		armLifter = new CANTalon(RobotMap.MOTOR_PORT_ARM);
 		armLifter.setPosition(0);		//resets arm encoder on turn on
+		limitBot = new DigitalInput(RobotMap.LIMIT);
 	}
 	
 
@@ -46,7 +48,16 @@ public class Arm extends Subsystem {
 	 */
 	public void controlArm(double speed)
 	{
-		armLifter.set(speed);
+		if(limitBot.get() && speed > 0  ){
+			armLifter.set(speed);
+		}
+		
+		else if(!limitBot.get() && speed < 0 ){
+			armLifter.set(0);
+		}
+		else{
+			armLifter.set(speed);
+		}
 	}
 	
 	/**

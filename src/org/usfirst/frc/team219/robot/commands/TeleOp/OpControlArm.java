@@ -22,7 +22,7 @@ public class OpControlArm extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	arm.controlArm(-oi.getYArm()*.4);
+    	arm.controlArm(oi.getYArm()*.3);
     	//SmartDashboard.putBoolean("Limit", arm.getLimitArm());
     	SmartDashboard.putNumber("Arm Encoder", arm.getEncPos());
     	

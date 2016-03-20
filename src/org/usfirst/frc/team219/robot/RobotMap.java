@@ -26,6 +26,8 @@ public class RobotMap {
 	 * Gyro port declaration
 	 */
 	public static final int GYRO_PORT = 1;
+	
+	public static final int LIMIT = 0;
 
 	/**
 	 * Pneumatics port declarations

@@ -15,7 +15,7 @@ public class StartRoller extends CommandBase{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		roller.setRollerSpeed(-.5);
+		roller.setRollerSpeed(-.8);
 	}
 
 	@Override

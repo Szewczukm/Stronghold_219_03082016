@@ -31,7 +31,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
         chooser = new SendableChooser();
-//        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
+        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
+        chooser.addObject("Nothing", null);
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }

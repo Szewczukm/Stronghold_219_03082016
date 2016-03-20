@@ -8,6 +8,7 @@ import org.usfirst.frc.team219.robot.commands.CommandBase;
 public class DriveToDistance extends CommandBase {
 	private double distanceInInches, totalDistance;
 	private double trimInches = 1.5;
+	private double startAngle;
 	
     public DriveToDistance(double distanceInInches) {
         // Use requires() here to declare subsystem dependencies
@@ -15,16 +16,18 @@ public class DriveToDistance extends CommandBase {
     	requires(drivetrain);
     	this.distanceInInches = distanceInInches;
     	totalDistance = this.distanceInInches - trimInches;
+    	
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	drivetrain.resetEncoders();
+    	startAngle = drivetrain.getGyroAngle();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drivetrain.autonDrive(.7, -.7);
+    	drivetrain.autonDrive(.7, -.7, startAngle);
     }
 
     // Make this return true when this Command no longer needs to run execute()

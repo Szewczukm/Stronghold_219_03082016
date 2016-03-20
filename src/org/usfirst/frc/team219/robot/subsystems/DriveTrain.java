@@ -87,6 +87,21 @@ public class DriveTrain extends Subsystem {
 //    	System.out.println(currAngle);
     }
     
+    public void autonDrive(double leftspeed, double rightspeed, double startAngle){
+    	currAngle = gyro.getAngle();
+    	deltaAngle = currAngle - startAngle;
+    	if(Math.abs(deltaAngle) > .05){
+        	addSpeed = 1 + deltaAngle * deltaSpeed;
+    	}
+    	else{
+    		addSpeed = 1;
+    	}
+    	
+    	this.tankDrive(leftspeed, rightspeed * addSpeed);
+//    	System.out.println(startAngle);
+//    	System.out.println(currAngle);
+    }
+    
     /**
      * Checks to see if the robot is at the correct angle
      * @param endAngle - The angle to end at.
@@ -120,7 +135,7 @@ public class DriveTrain extends Subsystem {
      */
     public boolean isAtDistance(double distanceInInches){
     	distanceInTicks = distanceInInches * (TICK_RATE/this.treadLength);
-    	if(getEncoderPos(motorFL) > distanceInTicks && getEncoderPos(motorFR) > distanceInTicks){
+    	if(getEncoderPos(motorFL) > distanceInTicks || getEncoderPos(motorFR) > distanceInTicks){
     		return true;
     	}
     	return false;

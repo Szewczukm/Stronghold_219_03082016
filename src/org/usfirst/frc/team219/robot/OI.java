@@ -54,9 +54,9 @@ public class OI {
 		  JoystickButton y = new JoystickButton(driveController, 4);
 		  y.whenPressed(new Retract());
 		  
-		  JoystickButton b = new JoystickButton(driveController, 2);
+		  JoystickButton b = new JoystickButton(armController, 3);
 		  b.whileHeld(new Harvest());
-		  JoystickButton x = new JoystickButton(driveController, 3);
+		  JoystickButton x = new JoystickButton(armController, 1);
 		  x.whileHeld(new StartRoller());
 	}
 	
