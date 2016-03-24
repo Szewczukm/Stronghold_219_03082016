@@ -1,5 +1,7 @@
 package org.usfirst.frc.team219.robot;
 
+import org.usfirst.frc.team219.robot.commands.AutonRoutines.CancelVision;
+import org.usfirst.frc.team219.robot.commands.AutonRoutines.TurnWithVision;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
@@ -53,11 +55,15 @@ public class OI {
 		  a.whenPressed(new Fire());
 		  JoystickButton y = new JoystickButton(driveController, 4);
 		  y.whenPressed(new Retract());
+		  JoystickButton x = new JoystickButton(driveController,3);
+		  x.whenPressed(new TurnWithVision());
+		  JoystickButton b = new JoystickButton(driveController,2);
+		  b.whenPressed(new CancelVision());
 		  
-		  JoystickButton b = new JoystickButton(armController, 3);
-		  b.whileHeld(new Harvest());
-		  JoystickButton x = new JoystickButton(armController, 1);
-		  x.whileHeld(new StartRoller());
+		  JoystickButton three = new JoystickButton(armController, 3);
+		  three.whileHeld(new Harvest());
+		  JoystickButton one = new JoystickButton(armController, 1);
+		  one.whileHeld(new StartRoller());
 	}
 	
 	/**
