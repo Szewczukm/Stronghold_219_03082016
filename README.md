@@ -16,12 +16,4 @@ Welcome to Team Impact's Github repository for our 2016 FRC Stronghold code.  If
 - Started from scratch, first year as a team using Java
 
 
-### To-Do
-##### Delete
-- [ ] Arm, Arm Position, References
-- [ ] Pneumatics
-
-##### Add
-- [ ] New Pneumatics
-- [ ] New Shooter
 

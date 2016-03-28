@@ -16,8 +16,6 @@ public class Roller extends Subsystem {
 		roller = new CANTalon(RobotMap.MOTOR_PORT_ROLLER);
 	}
 	
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands. 
 	
 	public void setRollerSpeed(double speed){
 		roller.set(speed);

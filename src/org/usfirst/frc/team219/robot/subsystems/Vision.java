@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Vision extends Subsystem {
 	
-	CameraServer camera;
+	private CameraServer camera;
     private NetworkTable table;
 
 	private double[] centerXs;
@@ -21,13 +21,18 @@ public class Vision extends Subsystem {
 	private double[] defaultValue = new double[0];
     
 	public Vision(){
+		/*
+		 * USB Camera creation
+		 */
 		camera = CameraServer.getInstance();
 		camera.setQuality(50);
 		camera.startAutomaticCapture("cam1");
 	}
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 	
+	
+	/**
+	 * Updates network tables with GRIP's vision values
+	 */
 	public void post(){
 	    table = NetworkTable.getTable("GRIP/myContoursReport");
 	    centerXs = table.getNumberArray("centerX", defaultValue);
@@ -73,6 +78,10 @@ public class Vision extends Subsystem {
 		return 0;
 	}
 	
+	/**
+	 * 
+	 * @return current center x value of target, or w/e vision camera sees
+	 */
 	public double getXVal()
 	{
 		try{
@@ -84,6 +93,9 @@ public class Vision extends Subsystem {
 		return RobotMap.PIXEL_CONSTANT;
 	}
 	
+	/**
+	 * Starts updating centerX values
+	 */
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new PullData());
