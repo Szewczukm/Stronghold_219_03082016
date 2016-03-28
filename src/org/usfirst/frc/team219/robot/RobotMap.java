@@ -18,7 +18,8 @@ public class RobotMap {
 	public static final int MOTOR_PORT_BL = 1;
 	public static final int MOTOR_PORT_FR = 3;
 	public static final int MOTOR_PORT_BR = 2;
-//	public static final int MOTOR_PORT_ROLLER = 4; 
+	public static final int MOTOR_PORT_SL = 4;
+	public static final int MOTOR_PORT_SR = 7;
 	public static final int MOTOR_PORT_ROLLER = 5; //controls harvester/shooter
 	public static final int MOTOR_PORT_ARM = 6; //controls the main arm
 	

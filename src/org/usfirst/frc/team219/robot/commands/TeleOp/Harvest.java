@@ -15,7 +15,7 @@ public class Harvest extends CommandBase
 	@Override
 	protected void initialize()
 	{
-		roller.setRollerSpeed(.7);
+		roller.setRollerSpeed(.9);
 	}
 
 	@Override

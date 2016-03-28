@@ -5,6 +5,7 @@ import org.usfirst.frc.team219.robot.subsystems.Arm;
 import org.usfirst.frc.team219.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team219.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team219.robot.subsystems.Roller;
+import org.usfirst.frc.team219.robot.subsystems.Shooter;
 import org.usfirst.frc.team219.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -27,6 +28,7 @@ public abstract class CommandBase extends Command {
 	public static Pneumatics pneumatics = new Pneumatics();
 	public static Roller roller = new Roller();
 	public static Vision vision = new Vision();
+	public static Shooter shooter = new Shooter();
 
 
 	

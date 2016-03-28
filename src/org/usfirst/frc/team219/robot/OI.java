@@ -6,6 +6,7 @@ import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
 import org.usfirst.frc.team219.robot.commands.TeleOp.StartRoller;
+import org.usfirst.frc.team219.robot.commands.TeleOp.StartShooter;
 
 //import org.usfirst.frc.team219.robot.commands.Harvest;
 //import org.usfirst.frc.team219.robot.commands.StartShooterWheels;s
@@ -64,6 +65,9 @@ public class OI {
 		  three.whileHeld(new Harvest());
 		  JoystickButton one = new JoystickButton(armController, 1);
 		  one.whileHeld(new StartRoller());
+		  
+		  JoystickButton eleven = new JoystickButton(armController,11);
+		  eleven.whileHeld(new StartShooter());
 	}
 	
 	/**
