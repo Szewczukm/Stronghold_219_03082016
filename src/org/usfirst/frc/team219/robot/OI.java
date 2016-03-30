@@ -13,6 +13,7 @@ import org.usfirst.frc.team219.robot.commands.TeleOp.StartShooter;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -54,12 +55,16 @@ public class OI {
 		  
 		  JoystickButton a = new JoystickButton(driveController, 1);
 		  a.whenPressed(new Fire());
+		  SmartDashboard.putString("A", "FIRE");
 		  JoystickButton y = new JoystickButton(driveController, 4);
 		  y.whenPressed(new Retract());
+		  SmartDashboard.putString("Y", "RETRACT");
 		  JoystickButton x = new JoystickButton(driveController,3);
 		  x.whenPressed(new TurnWithVision());
+		  SmartDashboard.putString("X", "TURN WITH VISION");
 		  JoystickButton b = new JoystickButton(driveController,2);
 		  b.whenPressed(new CancelVision());
+		  SmartDashboard.putString("B", "CANCEL VISION");
 		  
 		  JoystickButton three = new JoystickButton(armController, 3);
 		  three.whileHeld(new Harvest());

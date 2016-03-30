@@ -39,7 +39,7 @@ public class RobotMap {
 	public static final int CLIMBER_RIGHT_FORWARD = 6;
 	public static final int CLIMBER_RIGHT_REVERSE = 7;
 	
-	public static final int PIXEL_CONSTANT = 145;
+	public static final int CENTER_GOAL = 106;
 
 }
 

@@ -40,7 +40,7 @@ public class Vision extends Subsystem {
 	    try {
 	    	SmartDashboard.putNumber("X Num", centerXs[0]);
 	    	SmartDashboard.putString("Target", "I SEE IT!");
-	    	if(getXVal() <=145 && getXVal()>=135){
+	    	if(getXVal() <=112 && getXVal()>=100){
 	    		SmartDashboard.putString("At Good Angle?", "FIRE AWAY");
 	    	}
 	    	else{
@@ -59,13 +59,13 @@ public class Vision extends Subsystem {
 	 */
 	public int turnRight(){
 		try{
-			if((RobotMap.PIXEL_CONSTANT - (centerXs[0])) <= 0)
+			if((RobotMap.CENTER_GOAL - (centerXs[0])) <= 0)
 			{
 				return 1; 
 			}
 			else
 			{
-				if(RobotMap.PIXEL_CONSTANT - centerXs[0] >= 0)
+				if(RobotMap.CENTER_GOAL - centerXs[0] >= 0)
 				{
 					return -1;
 				}
@@ -90,7 +90,7 @@ public class Vision extends Subsystem {
 		catch(ArrayIndexOutOfBoundsException e){
 			System.out.println("Target not found: "+e);
 		}
-		return RobotMap.PIXEL_CONSTANT;
+		return RobotMap.CENTER_GOAL;
 	}
 	
 	/**

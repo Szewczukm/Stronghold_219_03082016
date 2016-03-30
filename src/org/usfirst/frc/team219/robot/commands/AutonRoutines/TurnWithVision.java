@@ -30,8 +30,8 @@ public class TurnWithVision extends CommandBase {
     
     private double outsideSpeed = .2;
     private double middleSpeed = .15;
-    private double insideSpeed = .11;
-    private int center = 145;
+    private double insideSpeed = .12;
+    private int center = RobotMap.CENTER_GOAL;
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
