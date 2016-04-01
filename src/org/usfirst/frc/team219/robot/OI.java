@@ -77,18 +77,32 @@ public class OI {
 	
 	/**
 	 * 
-	 * @return - Driver controller's left joystick Y-axis tilt
+	 * @return - Driver controller's left joystick Y-axis tilt squared input -- for a speed curve
 	 */
 	public double getLeftYDrive(){
-		return driveController.getRawAxis(1);
+		double squared = Math.pow(driveController.getRawAxis(1), 2);
+		
+		if(squared < .05)
+			squared = 0;
+		else if(squared > .90)
+			squared = 1;
+		
+		return squared;
 	}
 	
 	/**
 	 * 
-	 * @return - Driver controller's right joystick Y-axis tilt
+	 * @return - Driver controller's right joystick Y-axis tilt squared input -- for a speed curve
 	 */
 	public double getRightYDrive(){
-		return driveController.getRawAxis(5);
+		double squared = Math.pow(driveController.getRawAxis(5), 2);
+		
+		if(squared < .05)
+			squared = 0;
+		else if(squared > .90)
+			squared = 1;
+		
+		return squared;
 	}
 	
 	/**
