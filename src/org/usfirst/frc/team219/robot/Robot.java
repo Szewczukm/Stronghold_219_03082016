@@ -2,6 +2,7 @@
 package org.usfirst.frc.team219.robot;
 
 import org.usfirst.frc.team219.robot.commands.CommandBase;
+import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveShoot;
 import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveToDistance;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -31,8 +32,11 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	CommandBase.init();
         chooser = new SendableChooser();
-        chooser.addDefault("Auton Drive Straight", new DriveToDistance(180));
-        chooser.addObject("Nothing", null);
+        chooser.addDefault("Nothing", null);
+        chooser.addObject("Drive Straight -- NOT ROCK WALL", new DriveToDistance(180, .7));
+        chooser.addObject("Drive Straight Shoot -- NOT ROCK WALL", new DriveShoot(.7));
+        chooser.addObject("Drive Straight -- ROCK WALL", new DriveToDistance(180, .9));
+        chooser.addObject("Drive Straight Shoot -- ROCK WALL", new DriveShoot(.9));
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
