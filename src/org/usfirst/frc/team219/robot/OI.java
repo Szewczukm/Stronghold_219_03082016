@@ -2,9 +2,12 @@ package org.usfirst.frc.team219.robot;
 
 import org.usfirst.frc.team219.robot.commands.AutonRoutines.CancelVision;
 import org.usfirst.frc.team219.robot.commands.AutonRoutines.TurnWithVision;
+import org.usfirst.frc.team219.robot.commands.TeleOp.ExtendClimbAssist;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Fire;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Harvest;
+import org.usfirst.frc.team219.robot.commands.TeleOp.RegularHarvest;
 import org.usfirst.frc.team219.robot.commands.TeleOp.Retract;
+import org.usfirst.frc.team219.robot.commands.TeleOp.RetractClimbAssist;
 import org.usfirst.frc.team219.robot.commands.TeleOp.StartRoller;
 import org.usfirst.frc.team219.robot.commands.TeleOp.StartShooter;
 
@@ -68,11 +71,23 @@ public class OI {
 		  
 		  JoystickButton three = new JoystickButton(armController, 3);
 		  three.whileHeld(new Harvest());
+		  SmartDashboard.putString("3", "HARVEST");
 		  JoystickButton one = new JoystickButton(armController, 1);
 		  one.whileHeld(new StartRoller());
-		  
+		  SmartDashboard.putString("1", "START ROLLER");		  
 		  JoystickButton eleven = new JoystickButton(armController,11);
 		  eleven.whileHeld(new StartShooter());
+		  SmartDashboard.putString("11", "START SHOOT WHEELS");		  
+		  JoystickButton seven = new JoystickButton(armController, 7);
+		  seven.whenPressed(new ExtendClimbAssist());
+		  SmartDashboard.putString("7", "EXTEND CLIMB ASSIST");
+		  JoystickButton eight = new JoystickButton(armController, 8);
+		  eight.whenPressed(new RetractClimbAssist());
+		  SmartDashboard.putString("8", "RETRACT CLIMB ASSIST");
+		  
+		  JoystickButton nine = new JoystickButton(armController, 9);
+		  nine.whileHeld(new RegularHarvest());
+		  SmartDashboard.putString("9", "REGULAR HARVEST");
 	}
 	
 	/**
@@ -80,14 +95,15 @@ public class OI {
 	 * @return - Driver controller's left joystick Y-axis tilt squared input -- for a speed curve
 	 */
 	public double getLeftYDrive(){
-		double squared = Math.pow(driveController.getRawAxis(1), 2);
-		
-		if(squared < .05)
-			squared = 0;
-		else if(squared > .90)
-			squared = 1;
-		
-		return squared;
+//		double squared = driveController.getRawAxis(1);
+//		
+//		if(squared < .05)
+//			squared = 0;
+//		else if(squared > .90)
+//			squared = 1;
+//		
+//		return squared;
+		return driveController.getRawAxis(1);
 	}
 	
 	/**
@@ -95,14 +111,15 @@ public class OI {
 	 * @return - Driver controller's right joystick Y-axis tilt squared input -- for a speed curve
 	 */
 	public double getRightYDrive(){
-		double squared = Math.pow(driveController.getRawAxis(5), 2);
-		
-		if(squared < .05)
-			squared = 0;
-		else if(squared > .90)
-			squared = 1;
-		
-		return squared;
+//		double squared = driveController.getRawAxis(5);
+//		
+//		if(squared < .05)
+//			squared = 0;
+//		else if(squared > .90)
+//			squared = 1;
+//		
+//		return squared;
+		return driveController.getRawAxis(5);
 	}
 	
 	/**

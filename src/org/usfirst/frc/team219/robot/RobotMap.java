@@ -34,12 +34,17 @@ public class RobotMap {
 	 * Pneumatics port declarations
 	 */
 	public static final int PCM_PORT = 15;
-	public static final int CLIMBER_LEFT_FORWARD = 1;
-	public static final int CLIMBER_LEFT_REVERSE = 0;
-	public static final int CLIMBER_RIGHT_FORWARD = 6;
-	public static final int CLIMBER_RIGHT_REVERSE = 7;
+	public static final int CLIMBER_LEFT_FORWARD = 6;
+	public static final int CLIMBER_LEFT_REVERSE = 7;
+	public static final int CLIMBER_RIGHT_FORWARD = 2;
+	public static final int CLIMBER_RIGHT_REVERSE = 3;
 	
-	public static final int CENTER_GOAL = 106;
+	public static final int CLIMB_ASSIST_LEFT_FORWARD = 4;
+	public static final int CLIMB_ASSIST_LEFT_BACKWARD = 5;
+	public static final int CLIMB_ASSIST_RIGHT_FORWARD = 0;
+	public static final int CLIMB_ASSIST_RIGHT_BACKWARD = 1;
+	
+	public static final int CENTER_GOAL = 130;
 
 }
 

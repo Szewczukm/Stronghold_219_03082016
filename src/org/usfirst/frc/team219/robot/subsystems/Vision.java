@@ -40,7 +40,7 @@ public class Vision extends Subsystem {
 	    try {
 	    	SmartDashboard.putNumber("X Num", centerXs[0]);
 	    	SmartDashboard.putString("Target", "I SEE IT!");
-	    	if(getXVal() <=112 && getXVal()>=100){
+	    	if(getXVal() <=136 && getXVal()>=124){
 	    		SmartDashboard.putString("At Good Angle?", "FIRE AWAY");
 	    	}
 	    	else{

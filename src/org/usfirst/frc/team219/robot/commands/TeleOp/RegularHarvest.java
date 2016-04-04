@@ -4,10 +4,10 @@ import org.usfirst.frc.team219.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class Harvest extends CommandBase
+public class RegularHarvest extends CommandBase
 {
 
-	public Harvest(){
+	public RegularHarvest(){
 		requires(roller);
 		setTimeout(5);
 	}
@@ -16,13 +16,11 @@ public class Harvest extends CommandBase
 	protected void initialize()
 	{
 		roller.setRollerSpeed(.9);
-		shooter.setShooterSpeed(.2);
 	}
 
 	@Override
 	protected void execute()
 	{
-		SmartDashboard.putString("Roller", "HARVESTING");
 	}
 
 	@Override
@@ -33,9 +31,7 @@ public class Harvest extends CommandBase
 
 	@Override
 	protected void end() {
-		SmartDashboard.putString("Roller", "Z z z");
 		roller.setRollerSpeed(0);
-		shooter.setShooterSpeed(0);
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class StartShooter extends CommandBase{
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		shooter.setShooterSpeed(-.90);
+		shooter.setShooterSpeed(-.95);
 	}
 
 	@Override

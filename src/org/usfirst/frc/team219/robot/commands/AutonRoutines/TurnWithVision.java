@@ -29,8 +29,8 @@ public class TurnWithVision extends CommandBase {
     }
     
     private double outsideSpeed = .2;
-    private double middleSpeed = .15;
-    private double insideSpeed = .12;
+    private double middleSpeed = .17;
+    private double insideSpeed = .15;
     private int center = RobotMap.CENTER_GOAL;
 
     // Called repeatedly when this Command is scheduled to run
@@ -41,7 +41,7 @@ public class TurnWithVision extends CommandBase {
 		if(Math.abs(currX - center) > 70){
 			drivetrain.setTalonSpeed(leftRight* outsideSpeed, leftRight*outsideSpeed);
 		}
-		else if(Math.abs(currX - center) > 45){
+		else if(Math.abs(currX - center) > 30){
 			drivetrain.setTalonSpeed(leftRight*middleSpeed, leftRight*middleSpeed);
 		}
 		else if(Math.abs(currX - center) > 3){

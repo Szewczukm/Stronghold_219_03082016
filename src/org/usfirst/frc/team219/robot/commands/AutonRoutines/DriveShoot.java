@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class DriveShoot extends CommandGroup {
 	
     public  DriveShoot(double speed) {
-    	addSequential(new DriveToDistance(160, speed));
+//    	addSequential(new DriveToDistance(160, speed));
     	addSequential(new TurnWithVision());
     	addSequential(new StartShooter());
     	Timer.delay(1);
