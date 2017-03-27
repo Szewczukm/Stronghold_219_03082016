@@ -6,6 +6,7 @@ import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveShoot;
 import org.usfirst.frc.team219.robot.commands.AutonRoutines.DriveToDistance;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -23,7 +24,8 @@ public class Robot extends IterativeRobot {
 	
 
     Command autonomousCommand;
-    SendableChooser chooser;
+    SendableChooser<Command> chooser;
+    private PiSocketThread pst;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -31,7 +33,7 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	CommandBase.init();
-        chooser = new SendableChooser();
+        chooser = new SendableChooser<Command>();
         chooser.addDefault("Nothing", null);
         chooser.addObject("Drive Straight -- NOT ROCK WALL", new DriveToDistance(180, .8));
         chooser.addObject("Drive Straight Shoot -- NOT ROCK WALL", new DriveShoot(.7));
@@ -39,6 +41,9 @@ public class Robot extends IterativeRobot {
         chooser.addObject("Drive Straight Shoot -- ROCK WALL", new DriveShoot(.9));
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        Timer.delay(10); //wait for router?
+        pst = new PiSocketThread();
+        new Thread(pst).start();
     }
 	
 	/**

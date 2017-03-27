@@ -3,8 +3,13 @@ package org.usfirst.frc.team219.robot.subsystems;
 import org.usfirst.frc.team219.robot.RobotMap;
 import org.usfirst.frc.team219.robot.commands.TeleOp.OpDrive;
 
-import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
+import com.ctre.CANTalon;
+import com.ctre.CANTalon.TalonControlMode;
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -13,7 +18,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class DriveTrain extends Subsystem {
-	
 	private CANTalon motorFL; //Front left CAN Talon speed controller
 	private CANTalon motorBL; //Back left CAN Talon speed controller
 	private CANTalon motorFR; //Front right CAN Talon speed controller
@@ -28,6 +32,8 @@ public class DriveTrain extends Subsystem {
 	private double treadLength; //The tread length of the robot in inches; used for determining distance traveled for proper autonomous
 	private final double TICK_RATE = 4096.0; //Final for amount of ticks per one encoder revolution (<-- fix wording)
 	private double distanceInTicks; //The amount of inches to travel in ticks
+	
+	private AHRS navx = new AHRS(SPI.Port.kMXP);
 	
 	/**
 	 * @param treadLength - the length of the treads in inches
@@ -48,7 +54,7 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new OpDrive());
+//    	setDefaultCommand(new OpDrive());
     }
     
     /**
@@ -72,6 +78,7 @@ public class DriveTrain extends Subsystem {
      * @param leftspeed - Speed you want the left side motors to go
      * @param rightspeed - Speed you want the right side motors to go
      */
+    @Deprecated
     public void autonDrive(double leftspeed, double rightspeed){
     	currAngle = gyro.getAngle();
     	deltaAngle = currAngle - startAngle;
@@ -81,10 +88,7 @@ public class DriveTrain extends Subsystem {
     	else{
     		addSpeed = 1;
     	}
-    	
     	this.tankDrive(leftspeed, rightspeed * addSpeed);
-//    	System.out.println(startAngle);
-//    	System.out.println(currAngle);
     }
     
     public void autonDrive(double leftspeed, double rightspeed, double startAngle){
@@ -96,10 +100,7 @@ public class DriveTrain extends Subsystem {
     	else{
     		addSpeed = 1;
     	}
-    	
     	this.tankDrive(leftspeed, rightspeed * addSpeed);
-//    	System.out.println(startAngle);
-//    	System.out.println(currAngle);
     }
     
     /**
@@ -111,7 +112,6 @@ public class DriveTrain extends Subsystem {
      */
     public boolean gyroAtAngle(double endAngle, Direction d){
     	currAngle = gyro.getAngle();
-//    	System.out.println(currAngle);
     	switch(d){
 	    	case Right:
 	    		if(currAngle > endAngle){
@@ -139,7 +139,6 @@ public class DriveTrain extends Subsystem {
     		return true;
     	}
     	return false;
-    	
     }
     
     /**
@@ -149,6 +148,25 @@ public class DriveTrain extends Subsystem {
      */
     public int getEncoderPos(CANTalon motorWithEncoder){
     	return motorWithEncoder.getEncPosition();
+    }
+
+    public enum Talon{
+    	FRONT_LEFT, FRONT_RIGHT, BACK_LEFT, BACK_RIGHT;
+    }
+    
+    public CANTalon getTalon(Talon talon){
+    	switch(talon){
+    	case FRONT_LEFT:
+    		return motorFL;
+    	case FRONT_RIGHT:
+    		return motorFR;
+    	case BACK_LEFT:
+    		return motorBL;
+    	case BACK_RIGHT:
+    		return motorBR;
+    	default:
+    		return null;
+    	}
     }
     
     

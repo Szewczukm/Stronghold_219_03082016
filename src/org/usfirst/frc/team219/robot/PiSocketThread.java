@@ -1,6 +1,8 @@
 package org.usfirst.frc.team219.robot;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -10,6 +12,7 @@ public class PiSocketThread implements Runnable {
 	protected ServerSocket server = null;
 	protected boolean isStopped = false;
 	protected Thread runningThread = null;
+	protected VisionClientManager scm;
 	
 	
 	/**
@@ -18,6 +21,9 @@ public class PiSocketThread implements Runnable {
 	 */
 	public PiSocketThread(int port){
 		this.serverPort = port;
+	}
+	
+	public PiSocketThread(){
 	}
 	
 	/**
@@ -39,7 +45,7 @@ public class PiSocketThread implements Runnable {
 				}
 				throw new RuntimeException("Error accepting client connection", e);
 			}
-			new Thread(/*new Client()*/).start();
+			new Thread(new VisionClientManager(clientSocket)).start(); //Create a Connection Manager to store and process collected data
 		}
 		System.out.println("Server Stopped.");
 	}
@@ -75,18 +81,30 @@ public class PiSocketThread implements Runnable {
 			throw new RuntimeException("Cannot open port 4444", e);
 		}
 	}
-
 	
+	private class VisionClientManager implements Runnable {
+		private Socket client;
+		private BufferedReader br;
+		
+		public VisionClientManager(Socket client){
+			this.client = client;
+		}
+		
+		public void readData(){
+			try {
+				br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
-// 	PiSocketThread server = new PiSocketThread(9000);
-//	new Thread(server).start();
-//	
-//	try {
-//	    Thread.sleep(20 * 1000);
-//	} catch (InterruptedException e) {
-//	    e.printStackTrace();
-//	}
-
+		public void run() {
+			readData();
+		}
+		
+		
+	}
 }
 
 

@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Vision extends Subsystem {
 	
-	private CameraServer camera;
     private NetworkTable table;
 
 	private double[] centerXs;
@@ -24,9 +23,7 @@ public class Vision extends Subsystem {
 		/*
 		 * USB Camera creation
 		 */
-		camera = CameraServer.getInstance();
-		camera.setQuality(50);
-		camera.startAutomaticCapture("cam1");
+		table = NetworkTable.getTable("vision");
 	}
 	
 	
@@ -34,7 +31,6 @@ public class Vision extends Subsystem {
 	 * Updates network tables with GRIP's vision values
 	 */
 	public void post(){
-	    table = NetworkTable.getTable("GRIP/myContoursReport");
 	    centerXs = table.getNumberArray("centerX", defaultValue);
 	    SmartDashboard.putNumber("Turn Right?", turnRight());
 	    try {
